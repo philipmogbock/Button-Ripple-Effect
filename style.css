@@ -1,0 +1,66 @@
+body{
+    margin: 0;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: center; 
+    background-color: aliceblue;
+}
+
+.btn{
+    /* width: 130px;
+    height: 60px; */
+    border-radius: 5px;
+    font-size: 18px;
+    border: none;
+    box-shadow:0px 2px 4px 0px rgba(0,0,0.3) ;
+    background-color: pink;    
+    text-align: center; 
+    font-family: sans-serif;
+    /* display: flex;
+    height: 5vh;
+    align-items: center;
+    justify-content: center; */
+    padding:20px 40px;
+    text-decoration: none;
+    color: black;
+    position: relative;
+    /* restrict size of animation to diameter of button */
+    overflow: hidden;
+
+}
+
+.btn span{
+    /* bring button text to the front so it shows over animation */
+    position: relative;
+    z-index: 1;
+}
+
+/* set animation properties when we hover over */
+.btn::before{
+    content: "";
+    position: absolute;
+    background-color: orangered;
+    /* hide the element by making height and width 0 */
+    width: 0px;
+    height: 0px;
+    /* positioning */
+    /* left: 50%;
+    top: 50%; */
+
+    /* change positioning values to variables that can be changed  "--" to define vbl in css*/
+    left:var(--xPos);
+    top:var(--yPos);
+    transform: translate(-50%, -50%);
+    /* make it a circle */
+    border-radius: 50%;
+    /* hovering effect size timing */
+    transition: width 0.5s, height 0.5s;
+
+}
+
+/* set size of hovering element */
+.btn:hover::before{
+    width: 200px;
+    height: 200px;
+}
